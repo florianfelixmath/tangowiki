@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tango listening assessments</title>
+  <style>:root{color-scheme:light dark;--paper:#faf8f8;--ink:#2b2b2b;--muted:#626469;--line:#dedfe0;--accent:#284b63;--card:#fff;--soft:#edf2f4;--success:#3d685a}
+fieldset,.questions-panel,.recording{min-width:0}legend{overflow-wrap:anywhere}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:1120px;margin:auto;padding:32px 24px 20px}h1,h2,p{margin-top:0}h1{font-size:clamp(2rem,4.5vw,3.25rem);line-height:1.1;letter-spacing:-.045em;margin-bottom:14px}h2{font-size:1.45rem;line-height:1.25;letter-spacing:-.02em}.eyebrow{font-size:.7rem;font-weight:750;letter-spacing:.15em;color:var(--accent);margin-bottom:12px}.intro{color:var(--muted);max-width:650px}.page-heading{margin-bottom:32px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}#welcome{max-width:700px}fieldset{border:0;margin:0;padding:0}legend{font-size:1.05rem;font-weight:650;margin-bottom:15px}.experience-options{display:grid;gap:10px;margin-bottom:24px}.experience-options label{display:flex;align-items:center;gap:12px;padding:15px;border:1px solid var(--line);border-radius:10px;cursor:pointer}.experience-options label:has(input:checked){border-color:var(--accent);background:var(--soft)}input{accent-color:var(--accent)}button{font:inherit;font-weight:650;border-radius:9px;padding:12px 18px;cursor:pointer;min-height:46px}button.primary{background:var(--accent);color:#fff;border:1px solid var(--accent)}button.secondary{background:transparent;border:1px solid var(--line);color:var(--ink)}button:hover{filter:brightness(.92)}button:disabled{opacity:.55;cursor:wait}:focus-visible{outline:3px solid #b87332;outline-offset:4px}.muted{color:var(--muted)}.small{font-size:.8rem}.session-line{display:flex;gap:12px;justify-content:space-between;margin-bottom:20px;color:var(--muted);font-size:.8rem}.listening-layout{display:grid;grid-template-columns:minmax(260px,370px) minmax(0,1fr);gap:32px;align-items:start}.recording{position:sticky;top:16px;padding:22px}.recording h2{margin-bottom:8px}.video-wrap{aspect-ratio:16/9;width:100%;min-height:200px;background:#18191b;border-radius:10px;overflow:hidden}.video-wrap iframe{width:100%;height:100%;border:0}#player-notice{font-size:.8rem;margin:12px 0}.listening-progress{display:flex;justify-content:space-between;font-size:.8rem;font-weight:600;margin-top:22px}progress{width:100%;height:7px;border:0;border-radius:5px;background:var(--line);accent-color:var(--success);margin:8px 0 14px}progress::-webkit-progress-bar{background:var(--line);border-radius:5px}progress::-webkit-progress-value{background:var(--success);border-radius:5px}#skip{width:100%;margin-top:8px}.questions-heading{display:flex;justify-content:space-between;gap:12px;align-items:baseline}.questions-heading h2{margin-bottom:6px}#answered-count{font-size:.75rem;color:var(--muted);white-space:nowrap}.question{padding:22px 0;border-bottom:1px solid var(--line)}.question legend{float:left;width:100%;margin-bottom:14px;font-weight:550}.question .choices{clear:both;display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.rating{position:relative;display:flex;justify-content:center;align-items:center;min-height:44px;border:1px solid var(--line);border-radius:8px;cursor:pointer}.rating input{position:absolute;opacity:0}.rating:has(input:checked){background:var(--accent);border-color:var(--accent);color:#fff}.rating:has(input:focus-visible){outline:3px solid #b87332;outline-offset:3px}.scale-ends{display:flex;justify-content:space-between;gap:15px;font-size:.7rem;color:var(--muted);margin-top:7px}.scale-ends span:last-child{text-align:right}.cant-judge{display:inline-flex;align-items:center;gap:9px;font-size:.8rem;margin-top:13px;cursor:pointer;padding:5px 0}.question-number{font-size:.8rem;color:var(--muted);margin-right:8px}.submit-panel{padding:22px 0}.submit-panel button{width:100%}#form-message{font-size:.9rem;color:var(--accent)}.notice{border:1px solid #b87332;background:#fff3d9;color:#62451f;border-radius:10px;padding:12px 16px;margin-bottom:20px}footer{border-top:1px solid var(--line);margin-top:30px;padding-top:18px;color:var(--muted);font-size:.8rem}summary{cursor:pointer;font-weight:650}details p{margin:12px 0}#status{font-size:.9rem}[hidden]{display:none!important}@media(max-width:740px){main{padding:24px 16px}.listening-layout{grid-template-columns:1fr;gap:24px}.recording{position:static}.session-line{flex-wrap:wrap}.page-heading{margin-bottom:24px}.card{padding:20px}}@media(prefers-color-scheme:dark){:root{--paper:#161618;--ink:#ebebec;--muted:#b5b7be;--line:#393639;--accent:#47728f;--card:#202124;--soft:#293742;--success:#84a59d}.eyebrow{color:#9ebbd0}}
+</style>
+</head>
+<body>
+<main>
+  <div id="demo-notice" class="notice" hidden>Preview only — answers are not saved to Google Sheets.</div>
+  <header class="page-heading">
+    <p class="eyebrow">TANGO WIKI · LISTENING PROJECT</p>
+    <h1>How does this tango feel?</h1>
+    <p class="intro">Listen, notice, and share your impressions. There are no right answers.</p>
+  </header>
+  <section id="welcome" class="card">
+    <form id="experience-form">
+      <fieldset>
+        <legend>How long have you been dancing tango?</legend>
+        <div class="experience-options">
+          <label><input type="radio" name="experience" value="under_1" required><span>Less than a year</span></label>
+          <label><input type="radio" name="experience" value="1_to_5"><span>1–5 years</span></label>
+          <label><input type="radio" name="experience" value="over_5"><span>More than five years</span></label>
+        </div>
+      </fieldset>
+      <p>Each recording comes with ten short questions. Answer while you listen, skip whenever you like, and leave whenever you’re done.</p>
+      <button type="submit" class="primary">Start listening <span aria-hidden="true">→</span></button>
+    </form>
+  </section>
+  <section id="loading" class="card" hidden>
+    <h2>Finding your next recording</h2>
+    <p id="loading-copy">One moment…</p>
+    <button id="retry-next" class="primary" hidden>Try again</button>
+  </section>
+  <section id="assessment" hidden>
+    <div class="session-line"><span id="experience-label"></span><span id="saved-count">0 assessments saved</span></div>
+    <div class="listening-layout">
+      <aside class="recording card">
+        <p class="eyebrow" id="orchestra"></p>
+        <h2 id="recording-title"></h2>
+        <p id="recording-meta" class="muted"></p>
+        <div class="video-wrap"><div id="player"></div></div>
+        <p id="player-notice" role="status" class="muted">Press play when you’re ready.</p>
+        <div class="listening-progress"><span id="watch-label">0 seconds played</span><span id="watch-percent">0%</span></div>
+        <progress id="watch-progress" max="1" value="0" aria-label="Listening fraction"></progress>
+        <p class="small muted">Your answers are weighted by the time played divided by the recording’s length, up to 100%. Replays count; jumps forward do not.</p>
+        <button id="skip" type="button" class="secondary">Skip this recording</button>
+      </aside>
+      <form id="rating-form" class="questions-panel">
+        <div class="questions-heading"><h2>Your impressions</h2><span id="answered-count">0 / 10 answered</span></div>
+        <p class="muted">Choose 1–5, or “I can’t judge”. Your personal impression is what matters.</p>
+        <div id="questions"></div>
+        <div class="submit-panel">
+          <p id="form-message" role="status" aria-live="polite"></p>
+          <button id="submit" class="primary" type="submit">Submit &amp; next recording <span aria-hidden="true">→</span></button>
+        </div>
+      </form>
+    </div>
+  </section>
+  <p id="status" role="status" aria-live="polite"></p>
+  <footer>
+    <details><summary>What gets saved?</summary>
+      <p>For each submission, we save the recording, the questions and your answers, your tango-experience category, the submission time, and playback timing. “I can’t judge” is excluded from ratings. No name, email, or persistent participant identifier is requested.</p>
+      <p>This form does not use cookies or browser storage to remember you. Your experience choice stays in this open page only. Google and YouTube provide the embedded services and may process technical data under their own policies. Leaving or reloading discards answers that have not been submitted.</p>
+    </details>
+  </footer>
+</main>
+<script>/* Shared by the browser, Apps Script, and the tests. No browser storage. */
+const AssessmentCore = (() => {
+  const priority = new Set(['disarli', 'darienzo', 'troilo', 'pugliese', 'canaro', 'fresedo']);
+  const experiences = ['under_1', '1_to_5', 'over_5'];
+  const questionVersion = '2026-10-13-v1';
+  function weight(seconds, duration) {
+    return Number.isFinite(seconds) && Number.isFinite(duration) && duration > 0
+      ? Math.max(0, Math.min(1, seconds / duration)) : 0;
+  }
+  function applicable(recording, questions) {
+    return questions.filter(q => !((q.exclude_instrumental === undefined ? q.id === 'q019' : q.exclude_instrumental) && recording.singer.toLowerCase() === 'instrumental'));
+  }
+  function coverageKey(recordingId, questionId) { return `${recordingId}:${questionId}`; }
+  function coverage(rows, questions) {
+    const totals = {};
+    for (const row of rows) {
+      const w = weight(Number(row.playback_seconds), Number(row.recording_duration_seconds));
+      const snapshot = row.question_snapshot_json ? JSON.parse(row.question_snapshot_json) : null;
+      for (const q of questions) {
+        if (snapshot) {
+          const prior = snapshot.find(item => item.id === q.id);
+          if (!prior || prior.text !== q.text || JSON.stringify(prior.labels) !== JSON.stringify(q.labels)) continue;
+        }
+        const answer = row[q.id];
+        if (answer !== '' && answer != null && Number.isInteger(Number(answer)) && Number(answer) >= 1 && Number(answer) <= 5) {
+          const key = coverageKey(row.recording_id, q.id);
+          totals[key] = (totals[key] || 0) + w;
+        }
+      }
+    }
+    return totals;
+  }
+  function chooseWeighted(items, getWeight, random = Math.random) {
+    if (!items.length) throw new Error('No recordings are available.');
+    const weights = items.map(getWeight);
+    let target = random() * weights.reduce((a, b) => a + b, 0);
+    for (let i = 0; i < items.length; i++) {
+      target -= weights[i];
+      if (target < 0) return items[i];
+    }
+    return items[items.length - 1];
+  }
+  function select(recordings, questions, totals = {}, random = Math.random, priorities = null) {
+    const groups = {};
+    const mean = r => {
+      const qs = applicable(r, questions);
+      return qs.reduce((sum, q) => sum + (totals[coverageKey(r.id, q.id)] || 0), 0) / qs.length;
+    };
+    for (const r of recordings) {
+      if (!groups[r.orchestra_id]) groups[r.orchestra_id] = [];
+      groups[r.orchestra_id].push(r);
+    }
+    const orchestra = chooseWeighted(Object.keys(groups), id => {
+      const average = groups[id].reduce((sum, r) => sum + mean(r), 0) / groups[id].length;
+      return (priorities ? priorities[id] : (priority.has(id) ? 2 : 1)) / (1 + average);
+    }, random);
+    const recording = chooseWeighted(groups[orchestra], r => 1 / (1 + mean(r)), random);
+    const ranked = applicable(recording, questions).map(q => ({q, score: totals[coverageKey(recording.id, q.id)] || 0, tie: random()}));
+    ranked.sort((a, b) => a.score - b.score || a.tie - b.tie);
+    if (ranked.length < 10) throw new Error('At least ten applicable questions are required.');
+    return {recording, questions: ranked.slice(0, 10).map(x => x.q)};
+  }
+  function validateSubmission(payload, assignment, now = Date.now()) {
+    if (!payload || !assignment || !experiences.includes(assignment.experience)) throw new Error('Invalid assessment.');
+    if (!Number.isFinite(assignment.issued) || now < assignment.issued || now - assignment.issued > 24 * 60 * 60 * 1000) throw new Error('This assessment has expired. Reload to start again.');
+    const {answers, playback_seconds: seconds, recording_duration_seconds: duration} = payload;
+    if (!answers || typeof answers !== 'object' || Array.isArray(answers)) throw new Error('Please answer every question.');
+    const ids = Object.keys(answers);
+    if (ids.length !== 10 || assignment.question_ids.length !== 10 || new Set(assignment.question_ids).size !== 10 || ids.some(id => !assignment.question_ids.includes(id))) throw new Error('The questions do not match this assessment.');
+    for (const answer of Object.values(answers)) if (answer !== null && (!Number.isInteger(answer) || answer < 1 || answer > 5)) throw new Error('Ratings must be 1–5 or “I can’t judge”.');
+    if (!Number.isFinite(seconds) || seconds < 0 || !Number.isFinite(duration) || duration < 0 || duration > 86400 || seconds > (now - assignment.issued) / 1000 + 5) throw new Error('Invalid playback timing.');
+    return weight(seconds, duration);
+  }
+  // Estimate wall-clock playback, excluding pauses, buffering and seek jumps.
+  class PlaybackClock {
+    constructor() { this.seconds = 0; this.previous = null; }
+    sample(now, position, playing, rate = 1) {
+      const previous = this.previous;
+      if (previous && previous.playing && playing && rate > 0) {
+        const elapsed = (now - previous.now) / 1000;
+        const advance = position - previous.position;
+        if (elapsed > 0 && elapsed <= 2.5 && advance > 0 && advance <= elapsed * rate + 0.75) {
+          this.seconds += Math.min(elapsed, advance / rate);
+        }
+      }
+      this.previous = {now, position, playing};
+      return this.seconds;
+    }
+  }
+  return {priority, experiences, questionVersion, weight, applicable, coverageKey, coverage, chooseWeighted, select, validateSubmission, PlaybackClock};
+})();
+</script>
+<script></script>
+<script>(() => {
+  const $ = id => document.getElementById(id);
+  const labels = {under_1: 'Less than a year', '1_to_5': '1–5 years', over_5: 'More than five years'};
+  let experience, current, player, clock, interval, pending, busy = false, saved = 0, generation = 0;
+  let youtubePromise;
+  const preview = typeof window.assessmentDemo !== 'undefined';
+  $('demo-notice').hidden = !preview;
+  function rpc(method, value) {
+    if (preview) return window.assessmentDemo[method](value);
+    return new Promise((resolve, reject) => {
+      const timer = setTimeout(() => reject(new Error('The connection timed out. Please try again.')), 35000);
+      if (!window.google?.script?.run) { clearTimeout(timer); reject(new Error('The assessment service is unavailable. Please open this form from Tango Wiki.')); return; }
+      window.google.script.run.withSuccessHandler(result => {clearTimeout(timer); resolve(result);})
+        .withFailureHandler(() => {clearTimeout(timer); reject(new Error('We could not reach the assessment service. Your answers are still here; please try again.'));})[method](value);
+    });
+  }
+  function youtube() {
+    if (window.YT?.Player) return Promise.resolve();
+    if (!youtubePromise) youtubePromise = new Promise((resolve, reject) => {
+      const timer = setTimeout(() => reject(new Error('YouTube did not load. You can skip this recording.')), 20000);
+      window.onYouTubeIframeAPIReady = () => {clearTimeout(timer); resolve();};
+      const script = document.createElement('script'); script.src = 'https://www.youtube.com/iframe_api';
+      script.onerror = () => {clearTimeout(timer); reject(new Error('YouTube could not load. You can skip this recording.'));};
+      document.head.append(script);
+    }).catch(error => {youtubePromise = null; throw error;});
+    return youtubePromise;
+  }
+  function timing() {
+    const duration = Number(player?.getDuration?.()) || 0;
+    return {playback_seconds: Math.round((clock?.seconds || 0) * 1000) / 1000, recording_duration_seconds: duration};
+  }
+  function sample() {
+    if (!player?.getCurrentTime || !clock) return;
+    clock.sample(performance.now(), player.getCurrentTime(), player.getPlayerState() === 1, player.getPlaybackRate());
+    const t = timing(), fraction = AssessmentCore.weight(t.playback_seconds, t.recording_duration_seconds);
+    $('watch-label').textContent = `${Math.floor(t.playback_seconds)} seconds played`;
+    $('watch-percent').textContent = `${Math.round(fraction * 100)}%`;
+    $('watch-progress').value = fraction;
+  }
+  function stopPlayer() {
+    clearInterval(interval); generation++;
+    if (player) {player.destroy(); player = null;}
+    const box = document.querySelector('.video-wrap');
+    box.replaceChildren(Object.assign(document.createElement('div'), {id: 'player'}));
+  }
+  async function loadPlayer(recording) {
+    const version = generation;
+    try {
+      await youtube();
+      if (version !== generation) return;
+      player = new YT.Player('player', {host: 'https://www.youtube-nocookie.com', videoId: recording.youtube_id,
+        width: '100%', height: '100%', playerVars: {playsinline: 1, origin: location.origin},
+        events: {
+          onReady: () => {if (version === generation) interval = setInterval(sample, 250);},
+          onStateChange: event => {if (version !== generation) return; sample(); if (event.data === 1) $('player-notice').textContent = 'Listening time is being counted.'; else if (event.data === 2) $('player-notice').textContent = 'Paused — the listening timer is paused too.';},
+          onError: () => {if (version === generation) $('player-notice').textContent = 'This video cannot be played here. Please skip to another recording.';}
+        }});
+    } catch (error) {if (version === generation) $('player-notice').textContent = error.message;}
+  }
+  function answers() {
+    const result = {};
+    for (const question of current.questions) {
+      const chosen = document.querySelector(`input[name="${question.id}"]:checked`);
+      if (chosen) result[question.id] = chosen.value === 'unknown' ? null : Number(chosen.value);
+    }
+    return result;
+  }
+  function questionElement(question, index) {
+    const fieldset = document.createElement('fieldset'); fieldset.className = 'question';
+    const legend = document.createElement('legend');
+    const number = document.createElement('span'); number.className = 'question-number'; number.textContent = String(index + 1).padStart(2, '0');
+    legend.append(number, document.createTextNode(question.text)); fieldset.append(legend);
+    const choices = document.createElement('div'); choices.className = 'choices';
+    for (let value = 1; value <= 5; value++) {
+      const label = document.createElement('label'); label.className = 'rating'; label.title = question.labels[value - 1];
+      const input = document.createElement('input'); input.type = 'radio'; input.name = question.id; input.value = String(value); input.required = true;
+      input.setAttribute('aria-label', `${value} — ${question.labels[value - 1]}`);
+      label.append(input, document.createTextNode(String(value))); choices.append(label);
+    }
+    const ends = document.createElement('div'); ends.className = 'scale-ends';
+    for (const text of [question.labels[0], question.labels[4]]) {const span = document.createElement('span'); span.textContent = text; ends.append(span);}
+    const unknown = document.createElement('label'); unknown.className = 'cant-judge';
+    const input = document.createElement('input'); input.type = 'radio'; input.name = question.id; input.value = 'unknown';
+    unknown.append(input, document.createTextNode('I can’t judge')); fieldset.append(choices, ends, unknown);
+    return fieldset;
+  }
+  function render() {
+    $('orchestra').textContent = current.recording.orchestra;
+    $('recording-title').textContent = current.recording.title;
+    $('recording-meta').textContent = `${current.recording.singer} · ${current.recording.year} · Recording ${current.recording.id}`;
+    $('experience-label').textContent = `Dancing tango: ${labels[experience]}`;
+    $('saved-count').textContent = `${saved} assessment${saved === 1 ? '' : 's'} ${preview ? 'completed in preview' : 'saved'}`;
+    $('questions').replaceChildren(...current.questions.map(questionElement));
+    $('answered-count').textContent = '0 / 10 answered'; $('form-message').textContent = '';
+    $('watch-label').textContent = '0 seconds played'; $('watch-percent').textContent = '0%'; $('watch-progress').value = 0;
+    $('player-notice').textContent = 'Press play when you’re ready.';
+    $('submit').textContent = 'Submit & next recording →'; $('submit').disabled = false; $('skip').disabled = false;
+    $('assessment').hidden = false; $('loading').hidden = true; $('welcome').hidden = true;
+    clock = new AssessmentCore.PlaybackClock(); pending = null; loadPlayer(current.recording);
+  }
+  async function next() {
+    if (busy) return;
+    busy = true; stopPlayer(); $('assessment').hidden = true; $('welcome').hidden = true; $('loading').hidden = false;
+    $('loading-copy').textContent = saved ? 'Your last assessment is saved. Choosing the next recording…' : 'Choosing a recording and ten questions…';
+    $('retry-next').hidden = true;
+    try {current = await rpc('nextAssessment', experience); render();}
+    catch (error) {$('loading-copy').textContent = error.message; $('retry-next').hidden = false;}
+    finally {busy = false;}
+  }
+  $('experience-form').addEventListener('submit', event => {
+    event.preventDefault(); experience = new FormData(event.currentTarget).get('experience'); next();
+  });
+  $('rating-form').addEventListener('change', () => {$('answered-count').textContent = `${Object.keys(answers()).length} / 10 answered`;});
+  $('rating-form').addEventListener('submit', async event => {
+    event.preventDefault(); if (busy || !current) return;
+    if (!pending) {
+      const ratings = answers(); if (Object.keys(ratings).length !== 10) return;
+      sample(); pending = {token: current.token, answers: ratings, ...timing()};
+      player?.pauseVideo?.(); clearInterval(interval);
+    }
+    busy = true; $('submit').disabled = true; $('skip').disabled = true;
+    document.querySelectorAll('#questions input').forEach(input => input.disabled = true);
+    $('form-message').textContent = 'Saving your answers…';
+    let success = false;
+    try {
+      const result = await rpc('submitAssessment', pending);
+      if (!result.saved || result.id !== current.id) throw new Error('Saving was not confirmed. Please retry.');
+      saved++; pending = null; success = true;
+    } catch (error) {$('form-message').textContent = `${error.message} Retry sends the same answers once.`; $('submit').textContent = 'Retry saving'; $('submit').disabled = false;}
+    finally {busy = false;}
+    if (success) {await next(); window.scrollTo({top: 0, behavior: 'smooth'});}
+  });
+  $('skip').addEventListener('click', () => {if (!pending) next();});
+  $('retry-next').addEventListener('click', next);
+  window.addEventListener('pagehide', () => {clearInterval(interval); player?.pauseVideo?.();});
+})();
+</script>
+</body>
+</html>

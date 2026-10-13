@@ -44,7 +44,10 @@ jobs:
       - name: Install Quartz plugins
         run: npx quartz plugin install
       - name: Build Quartz
-        run: npx quartz build
+        run: |
+          npm run assessment:build
+          npm run assessment:test
+          npx quartz build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

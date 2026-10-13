@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tango listening assessments</title>
+  <style>/*ASSESSMENT_STYLE*/</style>
+</head>
+<body>
+<main>
+  <div id="demo-notice" class="notice" hidden>Preview only — answers are not saved to Google Sheets.</div>
+  <header class="page-heading">
+    <p class="eyebrow">TANGO WIKI · LISTENING PROJECT</p>
+    <h1>How does this tango feel?</h1>
+    <p class="intro">Listen, notice, and share your impressions. There are no right answers.</p>
+  </header>
+  <section id="welcome" class="card">
+    <form id="experience-form">
+      <fieldset>
+        <legend>How long have you been dancing tango?</legend>
+        <div class="experience-options">
+          <label><input type="radio" name="experience" value="under_1" required><span>Less than a year</span></label>
+          <label><input type="radio" name="experience" value="1_to_5"><span>1–5 years</span></label>
+          <label><input type="radio" name="experience" value="over_5"><span>More than five years</span></label>
+        </div>
+      </fieldset>
+      <p>Each recording comes with ten short questions. Answer while you listen, skip whenever you like, and leave whenever you’re done.</p>
+      <button type="submit" class="primary">Start listening <span aria-hidden="true">→</span></button>
+    </form>
+  </section>
+  <section id="loading" class="card" hidden>
+    <h2>Finding your next recording</h2>
+    <p id="loading-copy">One moment…</p>
+    <button id="retry-next" class="primary" hidden>Try again</button>
+  </section>
+  <section id="assessment" hidden>
+    <div class="session-line"><span id="experience-label"></span><span id="saved-count">0 assessments saved</span></div>
+    <div class="listening-layout">
+      <aside class="recording card">
+        <p class="eyebrow" id="orchestra"></p>
+        <h2 id="recording-title"></h2>
+        <p id="recording-meta" class="muted"></p>
+        <div class="video-wrap"><div id="player"></div></div>
+        <p id="player-notice" role="status" class="muted">Press play when you’re ready.</p>
+        <div class="listening-progress"><span id="watch-label">0 seconds played</span><span id="watch-percent">0%</span></div>
+        <progress id="watch-progress" max="1" value="0" aria-label="Listening fraction"></progress>
+        <p class="small muted">Your answers are weighted by the time played divided by the recording’s length, up to 100%. Replays count; jumps forward do not.</p>
+        <button id="skip" type="button" class="secondary">Skip this recording</button>
+      </aside>
+      <form id="rating-form" class="questions-panel">
+        <div class="questions-heading"><h2>Your impressions</h2><span id="answered-count">0 / 10 answered</span></div>
+        <p class="muted">Choose 1–5, or “I can’t judge”. Your personal impression is what matters.</p>
+        <div id="questions"></div>
+        <div class="submit-panel">
+          <p id="form-message" role="status" aria-live="polite"></p>
+          <button id="submit" class="primary" type="submit">Submit &amp; next recording <span aria-hidden="true">→</span></button>
+        </div>
+      </form>
+    </div>
+  </section>
+  <p id="status" role="status" aria-live="polite"></p>
+  <footer>
+    <details><summary>What gets saved?</summary>
+      <p>For each submission, we save the recording, the questions and your answers, your tango-experience category, the submission time, and playback timing. “I can’t judge” is excluded from ratings. No name, email, or persistent participant identifier is requested.</p>
+      <p>This form does not use cookies or browser storage to remember you. Your experience choice stays in this open page only. Google and YouTube provide the embedded services and may process technical data under their own policies. Leaving or reloading discards answers that have not been submitted.</p>
+    </details>
+  </footer>
+</main>
+<script>/*ASSESSMENT_CORE*/</script>
+<script>/*ASSESSMENT_DEMO*/</script>
+<script>/*ASSESSMENT_APP*/</script>
+</body>
+</html>
